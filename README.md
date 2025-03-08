@@ -67,7 +67,7 @@ pyinstaller --onefile --windowed OpenScanImageCropper.py
 ```
 **Troubleshooting**
 Antivirus Warnings
-You may need to temporarily disable your windoews defender to build and execute the exe file, as the file will not be signed.
+You may need to temporarily disable your Windows Defender to build and execute the exe file, as the file will not be signed.
 
 **Contributing**
 Contributions and feedback are welcome! Please fork the repository and submit a pull request.
