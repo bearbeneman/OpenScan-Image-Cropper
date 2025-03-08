@@ -2,6 +2,9 @@
 
 OpenScan Image Cropper is a Python-based GUI tool designed to crop images based on brightness levels. It features live preview, interactive threshold selection (including region-based and darkest-image options), and batch processing capabilities.
 
+![Screenshot of OpenScan Image Cropper](Images/App.png)
+
+
 ## Features
 
 - **Live Preview:** Displays a preview of your image with panning and zooming.
