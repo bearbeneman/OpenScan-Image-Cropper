@@ -1,4 +1,5 @@
-('D:\\PROJECTS\\Scanning crop script\\build\\OpenScanImageCropper\\PYZ-00.pyz',
+('D:\\PROJECTS\\GIT '
+ 'Projects\\OpenScan-Image-Cropper\\build\\OpenScanImageCropper\\PYZ-00.pyz',
  [('PIL',
    'C:\\Users\\Bene\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\__init__.py',
    'PYMODULE'),

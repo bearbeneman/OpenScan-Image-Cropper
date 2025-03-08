@@ -157,10 +157,14 @@ class OpenScanImageCropper(tk.Tk):
             self.load_input_folder(folder)
 
     def load_input_folder(self, folder):
-        image_paths = glob.glob(os.path.join(folder, "*.tif")) + glob.glob(os.path.join(folder, "*.tiff"))
+        # Updated to include TIFF, JPG, JPEG, PNG.
+        extensions = ["*.tif", "*.tiff", "*.jpg", "*.jpeg", "*.png"]
+        image_paths = []
+        for ext in extensions:
+            image_paths.extend(glob.glob(os.path.join(folder, ext)))
         image_paths = sorted(image_paths)
         if not image_paths:
-            messagebox.showinfo("No Images Found", "No TIFF images found in the selected input folder.")
+            messagebox.showinfo("No Images Found", "No image files found in the selected input folder.")
             self.image_list = []
             self.sample_image = None
             self.preview_canvas.delete("all")
@@ -356,11 +360,16 @@ class OpenScanImageCropper(tk.Tk):
         if not self.image_list:
             messagebox.showinfo("No Images", "No images in the folder.")
             return
-        total = len(self.image_list)
+        extensions = ["*.tif", "*.tiff", "*.jpg", "*.jpeg", "*.png"]
+        all_paths = []
+        for ext in extensions:
+            all_paths.extend(glob.glob(os.path.join(self.input_folder_entry.get(), ext)))
+        all_paths = sorted(all_paths)
+        total = len(all_paths)
         self.progress_bar["maximum"] = total
         darkest_index = None
         darkest_brightness = float("inf")
-        for idx, path in enumerate(self.image_list):
+        for idx, path in enumerate(all_paths):
             img = cv2.imread(path)
             if img is None:
                 continue
@@ -447,8 +456,10 @@ class OpenScanImageCropper(tk.Tk):
         margin = self.margin_scale.get()
         prefix = self.prefix_entry.get().strip()
         output_format = self.output_format_var.get()
-        image_paths = (glob.glob(os.path.join(input_folder, "*.tif")) +
-                       glob.glob(os.path.join(input_folder, "*.tiff")))
+        extensions = ["*.tif", "*.tiff", "*.jpg", "*.jpeg", "*.png"]
+        image_paths = []
+        for ext in extensions:
+            image_paths.extend(glob.glob(os.path.join(input_folder, ext)))
         total = len(image_paths)
         self.progress_bar["maximum"] = total
         for i, image_path in enumerate(image_paths):
