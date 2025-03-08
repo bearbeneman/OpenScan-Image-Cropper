@@ -26,6 +26,7 @@ Tkinter is usually included with Python on Windows.
 For the Executable
 No additional prerequisites are required.
 Note: The EXE may trigger warnings from Windows Defender (or similar antivirus software) if it is unsigned. Users might need to allow the file manually.
+
 How to Use
 Running from Source:
 Open a command prompt in the project folder and run:
@@ -35,6 +36,7 @@ python OpenScanImageCropper.py
 
 Using the Executable:
 Download and run the EXE file. If Windows Defender flags the file, choose to allow or unblock it.
+[Download OpenScanImageCropper.exe](dist/OpenScanImageCropper.exe)
 Building the Executable
 To create a standalone executable, use PyInstaller:
 
